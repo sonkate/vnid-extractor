@@ -1,3 +1,2 @@
-git push origin mainvgg_transformer.pth filter=lfs diff=lfs merge=lfs -text
 saved_models/vietocr/vgg_transformer.pth filter=lfs diff=lfs merge=lfs -text
 *.pth filter=lfs diff=lfs merge=lfs -text
