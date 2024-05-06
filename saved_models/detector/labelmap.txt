@@ -1,0 +1,8 @@
+id
+birth
+nati
+sex
+exp
+name
+home
+add
