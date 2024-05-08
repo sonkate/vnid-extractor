@@ -1,9 +1,12 @@
 import uvicorn
+import os
 from fastapi import FastAPI, File, UploadFile
 from starlette.responses import RedirectResponse
 
 from utils import image_utils
 from extractor.extractor import IdExtractor
+
+PORT = int(os.getenv("PORT", 8000))
 
 model = IdExtractor()
 
@@ -36,4 +39,4 @@ async def predict_api(f: UploadFile = File(...)):
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=PORT, reload=True)
