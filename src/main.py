@@ -2,6 +2,7 @@ import uvicorn
 import os
 from fastapi import FastAPI, File, UploadFile
 from starlette.responses import RedirectResponse
+from fastapi.middleware.cors import CORSMiddleware
 
 from utils import image_utils
 from extractor.extractor import IdExtractor
@@ -18,6 +19,14 @@ app_desc = """<h2>Try this app by uploading any image with `predict/image`</h2>"
 
 app = FastAPI(title="Tensorflow FastAPI Start Pack", description=app_desc)
 
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
 
 @app.get("/", include_in_schema=False)
 async def index():
